@@ -1,6 +1,6 @@
 module.exports = {
   purge: ['./public/index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: "media", // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -25,10 +25,15 @@ module.exports = {
     },
     fontSize: {
       '6.5xl': ['4rem', '1'],
+    },
+    scale: {
+      '115': '1.15',
     }
   },
   variants: {
-    extend: {},
+    extend: {
+      animation: ['motion-safe'],
+    },
   },
   plugins: [],
 };
