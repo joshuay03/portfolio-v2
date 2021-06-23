@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ["./public/index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  purge: ['./public/index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: "media", // or 'media' or 'class'
   theme: {
     extend: {
@@ -12,11 +12,20 @@ module.exports = {
         'synth-purple-light': '#2a2139',
         'synth-purple-mid': '#241b2f',
         'synth-purple-dark': '#262335',
-      }
+      },
+      height: {
+        page: '300%',
+      },
+      spacing: {
+        '32.25': '8.25rem',
+      },
     },
     fontFamily: {
       'fira-code': 'Fira Code, monospace',
     },
+    fontSize: {
+      '6.5xl': ['4rem', '1'],
+    }
   },
   variants: {
     extend: {},
