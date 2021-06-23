@@ -19,16 +19,19 @@ module.exports = {
       spacing: {
         '32.25': '8.25rem',
       },
+      fontSize: {
+        '6.5xl': ['4rem', '1'],
+      },
+      scale: {
+        '106.5': '1.065',
+      },
+      transitionDuration: {
+        '600': '600ms',
+      },
     },
     fontFamily: {
       'fira-code': 'Fira Code, monospace',
     },
-    fontSize: {
-      '6.5xl': ['4rem', '1'],
-    },
-    scale: {
-      '115': '1.15',
-    }
   },
   variants: {
     extend: {
