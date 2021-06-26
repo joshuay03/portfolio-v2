@@ -1,41 +1,43 @@
 module.exports = {
-  purge: ['./public/index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: 'media', // or 'media' or 'class'
+  purge: ["./public/index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  darkMode: "media", // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        'synth-blue': '#2ee2fa',
-        'synth-gold': '#ff8b39',
-        'synth-green': '#70f1b9',
-        'synth-grey': '#bbbbbb',
-        'synth-pink': '#f92aad',
-        'synth-purple-light': '#2a2139',
-        'synth-purple-mid': '#241b2f',
-        'synth-purple-dark': '#262335',
+        "synth-blue": "#2ee2fa",
+        "synth-gold": "#ff8b39",
+        "synth-green": "#70f1b9",
+        "synth-grey": "#bbbbbb",
+        "synth-pink": "#f92aad",
+        "synth-purple-light": "#2a2139",
+        "synth-purple-mid": "#241b2f",
+        "synth-purple-dark": "#262335",
       },
       height: {
-        page: '300%',
+        page: "300%",
       },
       spacing: {
-        '32.25': '8.25rem',
+        32.25: "8.25rem",
+        46: "11.5rem",
+        58: "14.5rem",
       },
       fontSize: {
-        '6.5xl': ['4rem', '1'],
+        "6.5xl": ["4rem", "1"],
       },
       scale: {
-        '106.5': '1.065',
+        106.5: "1.065",
       },
       transitionDuration: {
-        '600': '600ms',
+        600: "600ms",
       },
     },
     fontFamily: {
-      'fira-code': 'Fira Code, monospace',
+      "fira-code": "Fira Code, monospace",
     },
   },
   variants: {
     extend: {
-      animation: ['motion-safe'],
+      animation: ["motion-safe"],
     },
   },
   plugins: [],
