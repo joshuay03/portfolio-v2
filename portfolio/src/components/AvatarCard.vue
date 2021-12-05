@@ -1,26 +1,8 @@
 <template>
   <div
-    class="
-      h-32.25
-      w-32.25
-      rounded-2xl
-      bg-synth-blue
-      grid
-      place-items-center
-      cursor-pointer
-      transform
-      hover:scale-106.5
-      transition
-      duration-600
-      ease-in-out
-    "
+    class="h-32.25 w-32.25 rounded-2xl bg-synth-blue grid place-items-center"
   >
-    <img
-      class="h-32 w-32 rounded-2xl"
-      :src="getImgPath()"
-      alt="Avatar"
-      @click="scrollToElement({ behavior: 'smooth' }, 'about')"
-    />
+    <img class="h-32 w-32 rounded-2xl" :src="getImgPath()" alt="Avatar" />
   </div>
 </template>
 
@@ -30,11 +12,6 @@ export default {
   methods: {
     getImgPath(): string {
       return require("../assets/images/avatar.png");
-    },
-    scrollToElement(options: Record<string, unknown>, element: string): void {
-      const el: HTMLElement = document.getElementById(element) as HTMLElement;
-      console.log(el);
-      if (el) el.scrollIntoView(options);
     },
   },
 };

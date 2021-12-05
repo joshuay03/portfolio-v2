@@ -1,5 +1,21 @@
 <template>
-  <div class="grid place-items-center rounded-xl h-58 w-96 bg-red-100">
+  <div
+    class="
+      grid
+      place-items-center
+      rounded-xl
+      h-56
+      w-96
+      bg-red-100
+      text-3xl
+      cursor-pointer
+      transform
+      hover:scale-105
+      transition
+      duration-300
+      ease-in-out
+    "
+  >
     {{ title }}
   </div>
 </template>

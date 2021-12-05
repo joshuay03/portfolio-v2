@@ -19,13 +19,14 @@ module.exports = {
       spacing: {
         32.25: "8.25rem",
         46: "11.5rem",
-        58: "14.5rem",
       },
       fontSize: {
         "6.5xl": ["4rem", "1"],
       },
       scale: {
         106.5: "1.065",
+        111.5: "1.115",
+        115: "1.15",
       },
       transitionDuration: {
         600: "600ms",

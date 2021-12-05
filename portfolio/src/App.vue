@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-synth-purple-light h-full w-full">
-    <div class="grid grid-rows-5 place-items-center h-screen w-full">
+  <div class="h-full w-full">
+    <div id="main" class="grid grid-rows-5 place-items-center h-screen w-full">
       <div class="row-span-1 xl:row-span-2 2xl:row-span-2"></div>
       <div
         class="
@@ -16,9 +16,49 @@
         <AvatarCard class="sm:mb-4 md:mb-4 lg:mb-4" />
         <div class="w-4" />
         <div>
-          <span class="text-6.5xl text-synth-grey">Hi, I'm </span>
-          <span class="text-6.5xl text-synth-gold">Joshua Young</span>
-          <span class="text-6.5xl text-synth-grey">.</span>
+          <span
+            id="hiim"
+            class="
+              text-6.5xl text-synth-grey
+              relative
+              transition-all
+              duration-600
+              ease-in-out
+            "
+            >Hi, I'm
+          </span>
+          <button
+            id="jy"
+            class="
+              text-6.5xl text-synth-gold
+              underline
+              cursor-pointer
+              focus:outline-none
+              transform
+              hover:scale-111.5
+              transition
+              duration-600
+              ease-in-out
+            "
+            @click="scrollToElement({ behavior: 'smooth' }, 'about')"
+            @mouseover="
+              moveNeighbours('jy', 'hiim', 'period1', '0.6rem', '1.25rem')
+            "
+            @mouseleave="returnNeighbours('jy', 'hiim', 'period1')"
+          >
+            Joshua Young
+          </button>
+          <span
+            id="period1"
+            class="
+              text-6.5xl text-synth-grey
+              relative
+              transition-all
+              duration-600
+              ease-in-out
+            "
+            >.</span
+          >
           <br />
           <span
             id="ima"
@@ -32,10 +72,12 @@
             >I'm a
           </span>
           <button
+            id="fsse"
             class="
               text-6.5xl text-synth-pink
-              focus:outline-none
+              underline
               cursor-pointer
+              focus:outline-none
               transform
               hover:scale-106.5
               transition
@@ -43,19 +85,21 @@
               ease-in-out
             "
             @click="scrollToElement({ behavior: 'smooth' }, 'projects')"
-            @mouseover="moveNeighbours()"
-            @mouseleave="returnNeighbours()"
+            @mouseover="
+              moveNeighbours('fsse', 'ima', 'period2', '0.6rem', '0.95rem')
+            "
+            @mouseleave="returnNeighbours('fsse', 'ima', 'period2')"
           >
             Full Stack Software Engineer
           </button>
           <span
-            id="period"
+            id="period2"
             class="
+              text-6.5xl text-synth-grey
               relative
               transition-all
               duration-600
               ease-in-out
-              text-6.5xl text-synth-grey
             "
             >.</span
           >
@@ -70,195 +114,71 @@
         />
       </div>
     </div>
-    <div id="projects" class="flex h-screen w-full">
-      <div
-        class="
-          grid
-          place-items-center
-          h-full
-          w-36
-          focus:outline-none
-          cursor-pointer
-          transform
-          hover:scale-125
-          transition
-          duration-300
-          ease-in-out
-        "
-        @click="slideLeft()"
-      >
-        <img
-          class="w-28"
-          src="./assets/images/left_arrow.png"
-          alt="Left Arrow"
-        />
-      </div>
-      <div
-        class="
-          grid grid-rows-3 grid-cols-3
-          place-items-center
-          h-full
-          w-full
-          py-4
-        "
-      >
-        <ProjectCard
-          v-for="project in projects.slice(start, end)"
-          :key="project.name"
-          v-bind="project"
-        />
-      </div>
-      <div
-        class="
-          grid
-          place-items-center
-          h-full
-          w-36
-          focus:outline-none
-          cursor-pointer
-          transform
-          hover:scale-125
-          transition
-          duration-300
-          ease-in-out
-        "
-      >
-        <img
-          class="w-28"
-          src="./assets/images/right_arrow.png"
-          alt="Right Arrow"
-          @click="slideRight()"
-        />
-      </div>
-    </div>
-    <div id="about" class="grid place-items-center h-screen w-full">test3</div>
+    <div id="about" class="grid place-items-center h-screen w-full">about</div>
+    <Projects />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import AvatarCard from "./components/AvatarCard.vue";
-import ProjectCard from "./components/ProjectCard.vue";
+import Projects from "./components/Projects.vue";
 
 export default defineComponent({
   components: {
     AvatarCard,
-    ProjectCard,
+    Projects,
   },
-  data() {
-    return {
-      projects: [
-        {
-          title: "World Happiness1",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness2",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness3",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness4",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness5",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness6",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness7",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness8",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness9",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness10",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness11",
-          imagePath: "",
-          videoPath: "",
-        },
-        {
-          title: "World Happiness12",
-          imagePath: "",
-          videoPath: "",
-        },
-      ],
-      start: 0,
-      end: 9,
-      limit: 9,
-    };
-  },
-  methods: {
-    scrollToElement(options: Record<string, unknown>, element: string): void {
+  setup() {
+    const scrollToElement = (
+      options: Record<string, unknown>,
+      element: string
+    ): void => {
       const el: HTMLElement = document.getElementById(element) as HTMLElement;
       if (el) el.scrollIntoView(options);
-    },
-    moveNeighbours(): void {
-      const ima: HTMLElement = document.getElementById("ima") as HTMLElement;
-      const period: HTMLElement = document.getElementById(
-        "period"
+    };
+
+    const moveNeighbours = (
+      id: string,
+      neighbourLeft: string,
+      neighboutRight: string,
+      distanceLeft: string,
+      distanceRight: string
+    ): void => {
+      const elThis: HTMLElement = document.getElementById(id) as HTMLElement;
+      elThis.style.textDecoration = "none";
+      const elLeft: HTMLElement = document.getElementById(
+        neighbourLeft
       ) as HTMLElement;
-      ima.style.right = "0.65rem";
-      period.style.left = "1rem";
-    },
-    returnNeighbours(): void {
-      const ima: HTMLElement = document.getElementById("ima") as HTMLElement;
-      const period: HTMLElement = document.getElementById(
-        "period"
+      const elRight: HTMLElement = document.getElementById(
+        neighboutRight
       ) as HTMLElement;
-      ima.style.right = "0rem";
-      period.style.left = "0rem";
-    },
-    slideRight(): void {
-      if (this.end === this.projects.length) {
-        this.start = 0;
-        this.end = this.limit;
-      } else {
-        this.start = this.end;
-        if (this.start + this.limit > this.projects.length) {
-          this.end = this.projects.length;
-        } else {
-          this.end = this.start + this.limit;
-        }
-      }
-      console.log(this.start);
-    },
-    slideLeft(): void {
-      if (this.start === 0) {
-        this.start = Math.floor(this.projects.length / this.limit) * this.limit;
-        this.end = this.start + (this.projects.length % this.limit);
-      } else {
-        this.end = this.start;
-        this.start -= this.limit;
-      }
-      console.log(this.start);
-    },
+      elLeft.style.right = distanceLeft;
+      elRight.style.left = distanceRight;
+    };
+
+    const returnNeighbours = (
+      id: string,
+      neighbourLeft: string,
+      neighboutRight: string
+    ): void => {
+      const elLeft: HTMLElement = document.getElementById(
+        neighbourLeft
+      ) as HTMLElement;
+      const elRight: HTMLElement = document.getElementById(
+        neighboutRight
+      ) as HTMLElement;
+      elLeft.style.right = "0rem";
+      elRight.style.left = "0rem";
+      const elThis: HTMLElement = document.getElementById(id) as HTMLElement;
+      setTimeout(() => (elThis.style.textDecoration = "underline"), 400);
+    };
+
+    return {
+      scrollToElement,
+      moveNeighbours,
+      returnNeighbours,
+    };
   },
 });
 </script>
